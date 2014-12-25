@@ -33,25 +33,31 @@ body {
   padding: 60px 15px 0;
 }
 
-#row1{
+#row1, #row2{
 
 	height: 50px;
 	display: block;
+	margin: 5px;
 
 }
 
 #div1{
 
-	background-color: #AAF;
-	width: 50%;
+	background-color: #183b9e;
+	width: 44%;
 	display: block;
+	color: #f6f6f6;
+	padding: 1px;
+	margin: 5px;
 }
 
 #div2{
 
-	background-color: red;
-	width: 50%;
-
+	background-color: #b41d21;
+	width: 44%;
+	color: #f6f6f6;
+	padding: 1px;
+	margin: 5px;
 }
 
 
