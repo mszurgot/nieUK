@@ -66,23 +66,29 @@ body {
 	color: #EEE;
 	text-shadow: 5px 5px 5px #111;
 }
-#row1  a {
+#row1  p {
 	color: #EEE;
 	font-size: 18px;
 }
 
 #under-title {
-	padding-left: 45px;
 	text-shadow: 5px 5px 5px #111;
 }
 
 #row2 {
 	position: relative;
 	width:100%;
-	height: 300px;
+	height: 600px;
 	background-color: #181818;
-	/*box-shadow: 0px 0px 30px 10px #111;*/
-	border: 2px solid #222;
+} 
+
+#row3 {
+	position: relative;
+	width:100%;
+	height: auto;
+	background-color: #aaa;
+	min-height:200px;
+	overflow: hidden;
 } 
 
 .container .credit {
@@ -96,6 +102,22 @@ body {
 
 code {
   font-size: 80%;
+}
+
+hr.dashed {
+	position: absolute;
+    border-bottom: 3px dashed #aaa;
+	width:100%;
+	border-top: none;
+	
+}
+
+#carousel-example-generic{
+	height:600px;
+}
+
+#hr-dolna{
+	bottom: 0px;
 }
 
 #dropdown {
