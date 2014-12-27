@@ -52,17 +52,8 @@ body {
   border-top-right-radius: 0;
 }
 
-#footer > .container {
-  padding-left: 15px;
-  padding-right: 15px;
-  height: 60px;
-  background-color: #f6f6f6;
-  z-index: 10;
-  vertical-align: bottom;
-  display: block;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding-top: 10px;
+#footer {
+	bottom: 0px;
+	position: fixed;
 }
 
