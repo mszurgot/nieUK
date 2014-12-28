@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>nieUK</title>
-
+	
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+	<link href="css/learn.css" rel="stylesheet">
+	
+	
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,6 +21,7 @@
     <![endif]-->
   </head>
   <body>
+	<img src="images/blackboard.jpg">
     <!-- Wrap all page content here -->
 <div id="wrap">
     <!-- Fixed navbar -->
@@ -45,7 +49,64 @@
 
   
   <!-- Begin page content -->
-  
+  <div id="learn-content">
+	<div class="container">
+	
+		<!-- STATISTICS div-->
+		<div class="col-xs-12 col-sm-12 col-md-12" id="statistics">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="progress">
+						 <div class="progress-bar progress-bar-striped" id="answered-3-times">
+							<span class="sr-only">35% Complete (success)</span>
+						 </div>
+						 <div class="progress-bar progress-bar-striped" id="answered-2-times">
+							<span class="sr-only">20% Complete (warning)</span>
+						 </div>
+						 <div class="progress-bar progress-bar-striped" id="answered">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+						<div class="progress-bar progress-bar-striped" id="unanswered">
+							<span class="sr-only">35% Complete (success)</span>
+						 </div>
+					</div>
+					unanswered: <span class="badge" id="unanswered-badge">35</span>
+					answered:<span class="badge" id="answered-badge">10</span>
+					answered 2 times: <span class="badge" id="answered-2-times-badge">20</span>
+					answered 3 times: <span class="badge" id="answered-3-times-badge">35</span>
+				</div>
+			</div>
+		</div>
+		
+		<!-- APP div-->
+		<div class="col-xs-12 col-sm-12 col-md-6" id="app">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div id="fiszka">
+						<h3>FISZKA</h3>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="btn-group btn-group-lg" role="group" aria-label="...">
+						<button type="button" class="btn btn-danger" id="wrong-button">WRONG</button>
+						<button type="button" class="btn btn-success" id="accept-button">ACCEPT</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- WORDS DATABASES div-->
+		<div class="col-xs-12 col-sm-12 col-md-6" id="databases">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h3 class="panel-title">Databases</h3></div>
+				<div class="panel-body">
+					databases fsdaaaaaaaaa aaaaaaaajhgjksafdgk jsahgdjkhsafhasfdtewa vgjhsgdjhyawgd twfdhjawdjwyagdjayg wdjywgajsgdjy wagjdys gdjywgjdgasjdw
+				</div>
+			</div>
+		</div>
+	
+	</div>
+  </div>
   
 </div>
 <div id="footer">

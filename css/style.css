@@ -4,6 +4,7 @@
 html,
 body {
   height: 100%;
+  z-index:-3;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -16,6 +17,7 @@ body {
   margin: 0 auto -60px;
   /* Pad bottom by footer height */
   padding: 0 0 60px;
+  
 }
 
 
@@ -46,12 +48,16 @@ body {
 }
 
 #row1{
-	padding: 60px 15px 0;
+	padding: 60px 0px 0;
 	position: relative;
 	width:100%;
 	height: 376px;
 	display: block;
 	overflow: hidden;
+}
+
+#row1  div{
+	z-index: 1;
 }
 
 #row1 img{
