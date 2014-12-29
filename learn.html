@@ -16,11 +16,33 @@
 	<script>
 	
 		$(document).ready(function(){
-		
-			$("#fiszka").css({border: '10px solid #98C73D'});
+			var licznik=0;
+			$("#accept-button").on('click', function(){
+			licznik=licznik+1;
+			switch (licznik){
+				case 1:
+					$("#fiszka").css({border: '10px solid #00A9E0'});
+					break;
+				case 2:
+					$("#fiszka").css({border: '10px solid #98C73D'});
+					break;
+				case 3:
+					$("#fiszka").css({border: '10px solid #D0DD2B'});
+					break;
+				default:
+					$("#fiszka").css({border: '10px solid #00F'});
+					break;
+			}
 		
 		});
 		
+		$("#more").on('click', function(){
+		
+			$("#stats").toggle(1000).css({display: "block"});
+		
+		});
+		
+		});
 		//------------------
 
 		//-------------
@@ -98,6 +120,12 @@
 						<div class="col-xs-6 col-md-3">
 							unanswered: <span class="badge" id="unanswered-badge">35</span>
 						</div>
+					</div>
+					<div class="stats" id="stats">
+					<p> </p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet elit elit, nec lobortis tortor ultricies et. Integer at molestie ligula. Nunc auctor eu massa eget imperdiet. Sed pharetra purus ante, consectetur placerat libero efficitur vel. Vestibulum elementum laoreet sem, sit amet varius nunc lacinia ut. Praesent molestie finibus ante sed porttitor. Quisque nisl metus, bibendum eu justo eu, hendrerit convallis mi. Phasellus at fringilla arcu, in aliquam lorem. In ornare elit est, vel dapibus dui tristique vitae. Cras tellus augue, facilisis at auctor id, rutrum at felis. Curabitur sollicitudin congue turpis, ac efficitur nulla sollicitudin eu. Nullam et finibus ipsum, nec posuere dui. Nunc ac ligula ipsum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet elit elit, nec lobortis tortor ultricies et. Integer at molestie ligula. Nunc auctor eu massa eget imperdiet. Sed pharetra purus ante, consectetur placerat libero efficitur vel. Vestibulum elementum laoreet sem, sit amet varius nunc lacinia ut. Praesent molestie finibus ante sed porttitor. Quisque nisl metus, bibendum eu justo eu, hendrerit convallis mi. Phasellus at fringilla arcu, in aliquam lorem. In ornare elit est, vel dapibus dui tristique vitae. Cras tellus augue, facilisis at auctor id, rutrum at felis. Curabitur sollicitudin congue turpis, ac efficitur nulla sollicitudin eu. Nullam et finibus ipsum, nec posuere dui. Nunc ac ligula ipsum.</p>
+
 					</div>
 					
 				</div>

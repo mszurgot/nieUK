@@ -30,6 +30,11 @@ body > img{
 	padding: 0px;
 }
 
+#stats{
+	height: 300px;
+	display: none;
+}
+
 #more {
 	width:100%;
 	padding: 0px;
@@ -97,17 +102,17 @@ body > img{
 }
 
 #answered{
-	width: 20%;
+	width: 10%;
 	background-color: #00A9E0;
 }
 
 #answered-2-times{
-	width: 35%;
+	width: 20%;
 	background-color: #98C73D;
 }
 
 #answered-3-times{
-	width: 10%;
+	width: 35%;
 	background-color: #D0DD2B;
 }
 
