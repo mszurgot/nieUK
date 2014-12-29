@@ -70,21 +70,43 @@
 							<span class="sr-only">35% Complete (success)</span>
 						 </div>
 					</div>
-					unanswered: <span class="badge" id="unanswered-badge">35</span>
-					answered:<span class="badge" id="answered-badge">10</span>
-					answered 2 times: <span class="badge" id="answered-2-times-badge">20</span>
-					answered 3 times: <span class="badge" id="answered-3-times-badge">35</span>
+					<div class="container-fluid">
+						<div class="col-xs-6 col-md-3">
+							answered x3: <span class="badge" id="answered-3-times-badge">35</span>
+							
+						</div>
+						<div class="col-xs-6 col-md-3">
+							answered x2: <span class="badge" id="answered-2-times-badge">20</span>
+						</div>
+						<div class="col-xs-6 col-md-3">
+							answered:<span class="badge" id="answered-badge">10</span>
+						</div>
+						<div class="col-xs-6 col-md-3">
+							unanswered: <span class="badge" id="unanswered-badge">35</span>
+						</div>
+					</div>
+					
+				</div>
+				<div class="panel-footer">
+					
+						<button type="button" class="btn"  id="more">
+							<span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+						</button>
+					
 				</div>
 			</div>
 		</div>
 		
 		<!-- APP div-->
-		<div class="col-xs-12 col-sm-12 col-md-6" id="app">
+		<div class="col-xs-12 col-sm-12 col-md-7" id="app">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div id="fiszka">
 						<h3>FISZKA</h3>
 						<hr>
+					</div>
+					<div class="alert alert-danger" id="alert" role="alert">
+						<a href="#" class="alert-link">alert</a>
 					</div>
 					<div class="input-group input-group-lg"  id="answer-input-group">
 						<input type="text" class="form-control" placeholder="insert your translation...">
@@ -102,7 +124,7 @@
 		</div>
 		
 		<!-- WORDS DATABASES div-->
-		<div class="col-xs-12 col-sm-12 col-md-6" id="databases">
+		<div class="col-xs-12 col-sm-12 col-md-5" id="databases">
 			<div class="panel panel-default">
 				<!-- <div class="panel-heading"><h3 class="panel-title">Databases</h3></div> -->
 				<div class="panel-body">

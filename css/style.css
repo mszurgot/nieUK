@@ -4,7 +4,7 @@
 html,
 body {
   height: 100%;
-  z-index:-3;
+
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -19,8 +19,6 @@ body {
   padding: 0 0 60px;
   
 }
-
-
 
 /* Set the fixed height of the footer here */
 #footer {
@@ -53,7 +51,7 @@ body {
 	width:100%;
 	height: 376px;
 	display: block;
-	overflow: hidden;
+
 }
 
 #row1  div{

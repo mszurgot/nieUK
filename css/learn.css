@@ -3,7 +3,6 @@
 	margin-left: auto;
     margin-right: auto;
 	width: auto;
-	height:auto; /* tymczasowe - pozniej zmienic na auto*/
 }
 
 body > img{
@@ -24,6 +23,18 @@ body > img{
 #statistics span {
 	text-shadow: 0px 0px 3px #111;
 	font-size: 16px;
+}
+
+#statistics .panel-footer{
+	background-color: inherit;
+	padding: 0px;
+}
+
+#more {
+	width:100%;
+	padding: 0px;
+	position: relative;
+	background: transparent;
 }
 
 #learn-content > .container {
@@ -50,13 +61,20 @@ body > img{
 }
 
 #fiszka{
+	text-align: center;
 	margin: 10px;
 	min-height: 200px;
 	box-shadow: 3px 3px 10px 0px black;
-	border: 10px solid #ddd;
+	border: 10px solid #67CDDC;
 	border-radius: 5px;
 	background-color: #fff;
 	margin-bottom: 10px;
+}
+
+#alert{
+	height: auto;
+	margin: 10px;
+	padding: 0px 10px 0px 10px;
 }
 
 #answer-input-group {
