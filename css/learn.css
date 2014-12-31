@@ -31,7 +31,7 @@ body > img{
 }
 
 #stats{
-	height: 300px;
+	height: auto;
 	display: none;
 }
 

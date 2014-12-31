@@ -20,6 +20,7 @@ body {
   
 }
 
+
 /* Set the fixed height of the footer here */
 #footer {
 	position: relative;
@@ -99,7 +100,6 @@ body {
 .container .credit {
   margin: 20px 0;
 }
-
 
 code {
   font-size: 80%;
