@@ -4,7 +4,7 @@
     margin-right: auto;
 	width: auto;
 }
-
+ 
 body > img{
 	position: absolute;
 	top: 0;
@@ -18,16 +18,16 @@ body > img{
 	color: #fff;
 	font-size: 16px;
 	text-shadow: 3px 3px 3px #111;
-}
-
-#statistics span {
-	text-shadow: 0px 0px 3px #111;
-	font-size: 16px;
-}
-
-#statistics .panel-footer{
-	background-color: inherit;
-	padding: 0px;
+	
+	span {
+		text-shadow: 0px 0px 3px #111;
+		font-size: 16px;
+	}
+	
+	.panel-footer{
+		background-color: inherit;
+		padding: 0px;
+	}
 }
 
 #stats{
@@ -74,6 +74,11 @@ body > img{
 	border-radius: 5px;
 	background-color: #fff;
 	margin-bottom: 10px;
+	
+	h3{
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 #alert{
@@ -91,43 +96,43 @@ body > img{
 	color: black;
 }
 
-#fiszka h3{
-	margin-left: auto;
-	margin-right: auto;
-}
+$unanswered-color: #67CDDC;
+$answered-color: #00A9E0;
+$answered-2-times: #98C73D;
+$answered-3-times: #D0DD2B;
 
 #unanswered{
 	width: 35%;
-	background-color: #67CDDC;
+	background-color: $unanswered-color;
 }
 
 #answered{
 	width: 10%;
-	background-color: #00A9E0;
+	background-color: $answered-color;
 }
 
 #answered-2-times{
 	width: 20%;
-	background-color: #98C73D;
+	background-color: $answered-2-times;
 }
 
 #answered-3-times{
 	width: 35%;
-	background-color: #D0DD2B;
+	background-color: $answered-3-times;
 }
 
 #unanswered-badge{
-	background-color: #67CDDC;
+	background-color: $unanswered-color
 }
 
 #answered-badge{
-	background-color: #00A9E0;
+	background-color: $answered-color;
 }
 
 #answered-2-times-badge{
-	background-color: #98C73D;
+	background-color: $answered-2-times;
 }
 
 #answered-3-times-badge{
-	background-color: #D0DD2B;
+	background-color: $answered-3-times;
 }

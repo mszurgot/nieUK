@@ -1,0 +1,130 @@
+#learn-content {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+body > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 400px;
+  width: 100%;
+  z-index: -1;
+}
+
+#statistics {
+  color: #fff;
+  font-size: 16px;
+  text-shadow: 3px 3px 3px #111;
+}
+#statistics span {
+  text-shadow: 0px 0px 3px #111;
+  font-size: 16px;
+}
+#statistics .panel-footer {
+  background-color: inherit;
+  padding: 0px;
+}
+
+#stats {
+  height: auto;
+  display: none;
+}
+
+#more {
+  width: 100%;
+  padding: 0px;
+  position: relative;
+  background: transparent;
+}
+
+#learn-content > .container {
+  margin-top: 60px;
+}
+
+#learn-content .panel {
+  box-shadow: 5px 5px 10px 0px black;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+#app .panel-body {
+  padding: 0px;
+}
+
+#app .panel-body > .btn-group {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#app .panel-body > .btn-group > .btn {
+  width: 50%;
+}
+
+#fiszka {
+  text-align: center;
+  margin: 10px;
+  min-height: 200px;
+  box-shadow: 3px 3px 10px 0px black;
+  border: 10px solid #67CDDC;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+#fiszka h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#alert {
+  height: auto;
+  margin: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+#answer-input-group {
+  margin: 10px;
+}
+
+#answer-input-group > * {
+  font-size: 22px;
+  color: black;
+}
+
+#unanswered {
+  width: 35%;
+  background-color: #67cddc;
+}
+
+#answered {
+  width: 10%;
+  background-color: #00a9e0;
+}
+
+#answered-2-times {
+  width: 20%;
+  background-color: #98c73d;
+}
+
+#answered-3-times {
+  width: 35%;
+  background-color: #d0dd2b;
+}
+
+#unanswered-badge {
+  background-color: #67cddc;
+}
+
+#answered-badge {
+  background-color: #00a9e0;
+}
+
+#answered-2-times-badge {
+  background-color: #98c73d;
+}
+
+#answered-3-times-badge {
+  background-color: #d0dd2b;
+}
