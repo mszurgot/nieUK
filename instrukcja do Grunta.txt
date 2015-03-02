@@ -1,9 +1,10 @@
-skonfigurowalem pliki wiec wystarczy ze sciagniesz http://nodejs.org/ i zainstalujesz
+﻿skonfigurowalem pliki wiec wystarczy ze sciagniesz http://nodejs.org/ i zainstalujesz
 a pozniej przez cmd wejdziesz do folderu z projektem i odpalisz "npm install" 
 (to zainstaluje wszystko co trzeba bo tak jest skonfigurowane w pliku package.json)
+w cmd w folderze projektu odpalić polecenie "grunt"
+to powinno wykonać wszystkie operacje zapisane w skrypcie Gruntfile.js czyli przetworzenie wszystkich danych z folderu src(tam gdzie dokonujemy zmian) i wpiasanie ich do folderu "build" w wersji produkcyjnej
+ostatni polecenie które sie tam wykona to watch czyli obserwowanie plikow i teraz z wlaczonym w tle oknem cmd nasze pliki w src beda obserwowane i każda zapisana zmiana automatycznie wyowała znowu przetworzenie odpowiednich danych i wyslanie ich do folderu "build"
 
-
-z tym ze to wszystko zdzialalem a Gruntfile.js jeszcze nie jest skonfigurowany wiec zadna ze sciagnietych wtyczek nie dziala
-do tego potrzebna jest znajomosc javascripta wiec jak byś kompletnie nie wiedzial za co się zabrać to może rozeznaj się jak skonfugorwac poszczególne wtyczki
-i sprobuj to wklepac w Gruntfile.js ale jak nie lubisz grzebania sie z takimi rzeczami to ja to sprobuje ogarnac. Ale dopiero w 2015 ;d
+Teraz można dokonywać zmian w src a wszystko automatycznie przerobi się na ładną wersję w build
+By żyło się lepiej.
 

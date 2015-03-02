@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+﻿module.exports = function(grunt) {
 
 	// Project configuration.
 	grunt.initConfig({
@@ -7,7 +7,20 @@ module.exports = function(grunt) {
 		concat: {
 			jstarget: {
 				src: 'src/js/*.js',
-				dest: 'src/js/concatenated/<%= pkg.name %>.js'
+				dest: 'build/js/<%= pkg.name %>.js'
+			}
+		},
+		jshint: {
+			beforeconcat: ['src/js/*.js'],
+			afterconcat: ['build/js/nieUK.js'],
+			options: {
+				curly: true,
+				eqeqeq: true,
+				eqnull: true,
+				browser: true,
+				globals: {
+					jQuery: true
+				}
 			}
 		},
 		//scss na css
@@ -66,11 +79,22 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		copy: {
+			main: {
+				files: [{
+					expand: true, 
+					cwd: 'src/',
+					src: ['*.html'], 
+					dest: 'build/', 
+					filter: 'isFile'}
+				]
+			}
+		},
 		//obserwator
 		watch: {
 			scripts: {
 				files: ['src/js/*.js'],
-				tasks: ['concat','uglify'],
+				tasks: ['jshint','concat'/*,'uglify'*/],
 				options: {
 					spawn: false,
 				}
@@ -82,20 +106,28 @@ module.exports = function(grunt) {
 					spawn: false,
 				}
 			},
+			copy: {
+				files: ['src/*.html'],
+				tasks: ['copy'],
+				options: {
+					spawn: false,
+				}
+			},
 			csses: {
 				files: ['src/css/*.css'],
 				tasks: ['concat_css','cssmin'],
 				options: {
 					spawn: false,
 				}
-			},
-			htmls: {
+			}
+			
+			/*htmls: {
 				files: ['src/*.html'],
 				tasks: 'htmlmin',
 				options: {
 					spawn: false,
 				}
-			}
+			}*/
 		}
 	});
 
@@ -103,13 +135,16 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-concat-css');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	//grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	//grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   
 	// Default task(s).
-	grunt.registerTask('default', ['concat','sass','concat_css','uglify','cssmin','htmlmin','watch']);
+	//grunt.registerTask('default', ['concat','sass','concat_css','uglify','cssmin','htmlmin','watch']);
+	grunt.registerTask('default', ['concat','jshint','sass','concat_css','cssmin','copy','watch']);
 
 };
