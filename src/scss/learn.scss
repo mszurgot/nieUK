@@ -70,12 +70,20 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+	#translates{
+		font-size: 18px;
+	}
 }
 
 #alert{
-	height: auto;
+	height: 24px;
 	margin: 10px;
-	padding: 0px 10px 0px 10px;
+	margin: 10px;
+	padding: 0px 0px 0px 0px;
+	div{
+		text-align: center;
+		margin: 0px 0px 0px 0px;
+	}
 }
 
 #answer-input-group {
@@ -92,23 +100,31 @@ $answered-color: #00A9E0;
 $answered-2-times: #98C73D;
 $answered-3-times: #D0DD2B;
 
+.progress {
+	padding:0%;
+	> *{		
+		margin-right: 0%;
+		margin-left: 0%;
+	}
+}
+
 #unanswered{
-	width: 35%;
+	width: 100%;
 	background-color: $unanswered-color;
 }
 
 #answered{
-	width: 10%;
+	width: 0%;
 	background-color: $answered-color;
 }
 
 #answered-2-times{
-	width: 20%;
+	width: 0%;
 	background-color: $answered-2-times;
 }
 
 #answered-3-times{
-	width: 35%;
+	width: 0%;
 	background-color: $answered-3-times;
 }
 

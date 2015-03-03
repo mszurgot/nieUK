@@ -54,31 +54,31 @@
 				<div class="panel-body">
 					<div class="progress">
 						 <div class="progress-bar progress-bar-striped" id="answered-3-times">
-							<span class="sr-only">35% Complete (success)</span>
+							<!--<span class="sr-only">35% Complete (success)</span>-->
 						 </div>
 						 <div class="progress-bar progress-bar-striped" id="answered-2-times">
-							<span class="sr-only">20% Complete (warning)</span>
+							<!--<span class="sr-only">20% Complete (warning)</span>-->
 						 </div>
 						 <div class="progress-bar progress-bar-striped" id="answered">
-							<span class="sr-only">10% Complete (danger)</span>
+							<!--<span class="sr-only">10% Complete (danger)</span>-->
 						</div>
 						<div class="progress-bar progress-bar-striped" id="unanswered">
-							<span class="sr-only">35% Complete (success)</span>
+							<!--<span class="sr-only">35% Complete (success)</span>-->
 						 </div>
 					</div>
 					<div class="container-fluid">
 						<div class="col-xs-6 col-md-3">
-							answered x3: <span class="badge" id="answered-3-times-badge">35</span>
+							answered x3: <span class="badge" id="answered-3-times-badge">0</span>
 							
 						</div>
 						<div class="col-xs-6 col-md-3">
-							answered x2: <span class="badge" id="answered-2-times-badge">20</span>
+							answered x2: <span class="badge" id="answered-2-times-badge">0</span>
 						</div>
 						<div class="col-xs-6 col-md-3">
-							answered:<span class="badge" id="answered-badge">10</span>
+							answered:<span class="badge" id="answered-badge">0</span>
 						</div>
 						<div class="col-xs-6 col-md-3">
-							unanswered: <span class="badge" id="unanswered-badge">35</span>
+							unanswered: <span class="badge" id="unanswered-badge">0</span>
 						</div>
 					</div>
 					<div id="stats">
@@ -104,19 +104,21 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div id="fiszka">
-						<h3>FISZKA</h3>
+						<h3></h3>
 						<hr>
 						<p id="translates">
 							<!-- tu bêd¹ generowaæ siê t³uamczenia-->
 						</p>
 					</div>
-					<div class="alert alert-danger" id="alert" role="alert">
-						<a href="#" class="alert-link">alert</a>
+					<div id="alert">
+						<div class="alert" id="alert" role="alert">
+							<p href="#" class="alert-link">alert</p>
+						</div>
 					</div>
 					<div class="input-group input-group-lg"  id="answer-input-group">
-						<input type="text" class="form-control" placeholder="insert your translation...">
+						<input id="answer" type="text" class="form-control" placeholder="insert your translation...">
 						<span class="input-group-btn btn-group-lg">
-							<button class="btn btn-info" type="button">Check!</button>
+							<button id="check" class="btn btn-info" type="button">Check!</button>
 						</span>
 					</div><!-- /input-group -->
 					<div class="btn-group btn-group-lg" role="group" aria-label="...">
