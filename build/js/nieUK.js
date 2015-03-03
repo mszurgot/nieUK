@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var slowo = 'mapa';//slowko ustawione na sztywno na potrzebe testow
+	var slowo = 'wieloryb';//slowko ustawione na sztywno na potrzebe testow
 	var translates = $('#translates');
 	
 	$.ajax({
@@ -9,14 +9,15 @@ $(document).ready(function(){
 		error: function() { alert('błąd przy pozyskiwaniu danych z usługi sieciowej'); },
 		url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+slowo+'&page=1&pretty=false',
 		success: function(data){
-			//generalnie tu są jakieś problemy aktualnie
-			$.each(data.tuc,function(i,translation){
-				translates.append('<li>'+ translation.phrase.text + '</li>');
-			});
 			console.log('success',data);
+			//generalnie tu są jakieś problemy aktualnie
+			$.each(data.tuc[data.tuc.length - 1].meanings,function(i,translation){
+				translates.append(translation.text);
+			});
+			
 		}
 	});
-	 
+	  
 	var licznik=0;
 	$("#accept-button").on('click', function(){
 	licznik=licznik+1;
