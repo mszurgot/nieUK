@@ -77,12 +77,13 @@
 
 #alert{
 	height: 24px;
-	margin: 10px;
-	margin: 10px;
-	padding: 0px 0px 0px 0px;
+	margin: 0px;
+	padding: 0px 10px 0px 10px;
 	div{
+		padding: 0px;
+		height: 24px;
 		text-align: center;
-		margin: 0px 0px 0px 0px;
+		margin: 0px;
 	}
 }
 

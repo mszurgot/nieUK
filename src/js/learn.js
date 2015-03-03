@@ -29,11 +29,10 @@ $(document).ready(function(){
 	});
 	
 	function nowyAlert(tresc, klasa){
-		$tmp = $('#alert');
-		$tmp.children().slideUp(100);
-		$tmp.removeClass("alert-danger alert-success").addClass("alert "+klasa);
+		$tmp = $('#alert div');
+		$tmp.slideUp(100).removeClass("alert-danger alert-success").addClass("alert "+klasa);
 		$("#alert div p").text(tresc);
-		$tmp.children().slideDown(100);
+		$tmp.slideDown(100);
 	}
 	  
 	function uaktualnijWielkosciStosow(){
@@ -64,7 +63,7 @@ $(document).ready(function(){
 			error: function() { alert('błąd przy pozyskiwaniu danych z usługi sieciowej'); },
 			url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+stosy[wskaznikStosu][wskaznikSlowa]+'&page=1&pretty=false',
 			success: function(data){
-				//console.log('success',data);
+				console.log('success',data);
 				for(var j = 0; j < data.tuc.length - 2 ; j++){//tu warto kiedys zmienic aby dodawane slowka nie powtarzaly sie
 					wczytaneSlowa[j]=data.tuc[j].phrase.text;
 				}
