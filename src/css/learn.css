@@ -34,7 +34,6 @@
 #learn-content > .container {
   margin-top: 60px;
 }
-
 #learn-content .panel {
   box-shadow: 5px 5px 10px 0px black;
   background-color: rgba(255, 255, 255, 0.3);
@@ -42,27 +41,24 @@
 }
 
 #app .panel-body {
-  padding: 0px;
+  padding: 10px;
 }
-
-#app .panel-body > .btn-group {
+#app .panel-body .panel-body > .btn-group {
   margin-top: 10px;
   width: 100%;
 }
-
-#app .panel-body > .btn-group > .btn {
+#app .panel-body .panel-body > .btn-group > .btn {
   width: 50%;
 }
 
 #fiszka {
   text-align: center;
-  margin: 10px;
+  margin: 0px;
   min-height: 200px;
   box-shadow: 3px 3px 10px 0px black;
   border: 10px solid #67CDDC;
   border-radius: 5px;
   background-color: #fff;
-  margin-bottom: 10px;
 }
 #fiszka h3 {
   margin-left: auto;
@@ -74,8 +70,8 @@
 
 #alert {
   height: 24px;
-  margin: 0px;
-  padding: 0px 10px 0px 10px;
+  margin: 10px 0px 10px 0px;
+  padding: 0px;
 }
 #alert div {
   padding: 0px;
@@ -85,9 +81,8 @@
 }
 
 #answer-input-group {
-  margin: 10px;
+  margin: 0px;
 }
-
 #answer-input-group > * {
   font-size: 22px;
   color: black;

@@ -1,32 +1,71 @@
 $(document).ready(function(){
-	var wskaznikSlowa = 0;
-	var czyWyswietlicOdpowiedz = false;
+	var odpowiedziane = false;
+	//var czyWyswietlicOdpowiedz = false;
 	var ileWszystkichSlowek = 1;
 	var wskaznikStosu = 0;	//wartości 0-3
-	var stosy = [['mysz','ryba','kot','kogut','mrówka','jastrząb'],[],[],[]];
+	var stosy = [['mysz','ryba','kot'/*,'kogut','mrówka','jastrząb'*/],[],[],[]];
 	var wczytaneSlowa = [];
 	
-	$("#fiszka > h3").text(stosy[wskaznikStosu][wskaznikSlowa]);
-	ladujOdpowiedzi();
+	//init
+	ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
+	ladujNowyStos(0);
 	$('#alert').children().toggle(false);
 	
 	$("#check").on("click",function(){
-		var answer = $("#answer").val();
-		console.log('checkVal',answer);
-		var correct = false;
-		$.each(wczytaneSlowa, function(it,slowo){
-			if(answer === slowo){
-				correct = true;
+		if(odpowiedziane){
+			odpowiedziane =false;
+			$(this).removeClass("btn-success").addClass("btn-info").text("Check!");
+			$("#alert div").slideUp(100);
+			console.log("wielkosc tablicy",stosy[wskaznikStosu].length);
+			if(stosy[wskaznikStosu].length !== 0){
+				ladujOdpowiedzi();
+			}else{
+				ladujNowyStos(++wskaznikStosu);
 			}
-		});
 		
-		if(correct){
-			nowyAlert("Fuckn' awesome, Man", "alert-success");
 		}else{
-			nowyAlert("You suck! Try again faggot", "alert-danger");
+			var answer = $("#answer").val();
+			//console.log('checkVal',answer);
+			var correct = false;
+			$.each(wczytaneSlowa, function(it,slowo){
+				if(answer === slowo){
+					correct = true;
+				}
+			});
+			if(correct){
+				nowyAlert("Fuckn' awesome, Man", "alert-success");
+				$(this).removeClass("btn-info").addClass("btn-success").text("Confirm");
+				if(wskaznikStosu < 3){
+					stosy[wskaznikStosu+1].push(stosy[wskaznikStosu].shift());
+				}
+			}else{
+				nowyAlert("You suck! Try again faggot", "alert-danger");
+				if(wskaznikStosu > 0){
+					stosy[wskaznikStosu-1].push(stosy[wskaznikStosu].shift());
+				}
+			}
+			odpowiedziane = true;	
+			appendWczytaneSlowa();
 		}
-		appendWczytaneSlowa(); 
 	});
+	
+	function ladujNowyStos(numerStosu){
+		wskaznikStosu = numerStosu;
+		$("fiszka > div").css("border-color",getKolorStosu());
+		odpowiedziane = false;
+		correct = false;
+		ladujOdpowiedzi();
+
+	}
+	
+	function getKolorStosu(){
+		switch(wskaznikStosu){
+			case 0: return "#67CDDC";
+			case 1: return "#00A9E0";
+			case 2: return "#98C73D";
+			case 3: return "#D0DD2B";
+		}
+	}
 	
 	function nowyAlert(tresc, klasa){
 		$tmp = $('#alert div');
@@ -61,28 +100,31 @@ $(document).ready(function(){
 			dataType: 'jsonp',
 			crossDomain: true,
 			error: function() { alert('błąd przy pozyskiwaniu danych z usługi sieciowej'); },
-			url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+stosy[wskaznikStosu][wskaznikSlowa]+'&page=1&pretty=false',
+			url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+stosy[wskaznikStosu][0]+'&page=1&pretty=false',
 			success: function(data){
-				console.log('success',data);
-				for(var j = 0; j < data.tuc.length - 2 ; j++){//tu warto kiedys zmienic aby dodawane slowka nie powtarzaly sie
-					wczytaneSlowa[j]=data.tuc[j].phrase.text;
+				//console.log('success',data);
+				wczytaneSlowa=[];
+				var j=0;
+				for(var i = 0; i < data.tuc.length - 2 ;i++){//tu warto kiedys zmienic aby dodawane slowka nie powtarzaly sie
+					try{
+					wczytaneSlowa[j]=data.tuc[j].phrase.text;//try catch do zrobienia!
+					j++;
+					}catch(err){
+						console.log(err.message);
+					}
 				}
-				console.log("ilosc wczytanych slow",wczytaneSlowa.length);
+				//console.log("ilosc wczytanych slow",wczytaneSlowa.length);
 				uaktualnijWielkosciStosow();
+				$("#fiszka").toggle(400);
+				$("#fiszka > h3").text(stosy[wskaznikStosu][0]);
+				$("#translates").text("");
+				$("#fiszka").toggle(400);
+				$("#answer").val("");
 				
 			}
 		});
 	}  
-	
-	$("#wrong-button").on('click', function(){
-		//kod
-	});
 
-	$("#accept-button").on('click', function(){
-		//kod
-		uaktualnijWielkosciStosow();
-	});
-			
 	$("#more").on('click', function(){
 		$("#stats").toggle(1000).css({display: "block"});
 	});
