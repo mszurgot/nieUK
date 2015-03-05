@@ -3,13 +3,12 @@ $(document).ready(function(){
 	//var czyWyswietlicOdpowiedz = false;
 	var ileWszystkichSlowek = 1;
 	var wskaznikStosu = 0;	//wartości 0-3
-	var stosy = [['mysz','ryba','kot'/*,'kogut','mrówka','jastrząb'*/],[],[],[]];
+	var stosy = [['mysz','ryba','kot','kogut','mrówka','jastrząb'],[],[],[]];
 	var wczytaneSlowa = [];
 	
 	//init
 	ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
 	ladujNowyStos(0);
-	$('#alert').children().toggle(false);
 	
 	$("#check").on("click",function(){
 		if(odpowiedziane){
@@ -19,8 +18,15 @@ $(document).ready(function(){
 			console.log("wielkosc tablicy",stosy[wskaznikStosu].length);
 			if(stosy[wskaznikStosu].length !== 0){
 				ladujOdpowiedzi();
-			}else{
-				ladujNowyStos(++wskaznikStosu);
+			}else {
+				//wymuszone wybieranie stosu
+				for(var i = 0 ; i<=3 ; i++){
+					$("#btn"+i).css({"opacity":(stosy[i].length === 0)?0.3:1});
+				}
+				uaktualnijWielkosciStosow();
+				$("#answer-input-group").slideUp(400);
+				$("#przyciskiStosy").slideDown(600);
+				
 			}
 		
 		}else{
@@ -34,9 +40,11 @@ $(document).ready(function(){
 			});
 			if(correct){
 				nowyAlert("Fuckn' awesome, Man", "alert-success");
-				$(this).removeClass("btn-info").addClass("btn-success").text("Confirm");
 				if(wskaznikStosu < 3){
 					stosy[wskaznikStosu+1].push(stosy[wskaznikStosu].shift());
+				}else{
+					var nauczone = stosy[wskaznikStosu].shift();
+					nowyAlert("You've learned new word: "+nauczone+".", "alert-info");
 				}
 			}else{
 				nowyAlert("You suck! Try again faggot", "alert-danger");
@@ -44,16 +52,49 @@ $(document).ready(function(){
 					stosy[wskaznikStosu-1].push(stosy[wskaznikStosu].shift());
 				}
 			}
+			$(this).removeClass("btn-info").addClass("btn-success").text("Confirm");
 			odpowiedziane = true;	
 			appendWczytaneSlowa();
 		}
 	});
 	
+	//te przyciski dałoby sie jakoś zapisać w pętli
+	$("#btn0").on("click",function(){
+		if(stosy[0].length !== 0){
+			ladujNowyStos(0);
+			$("#answer-input-group").slideDown(400);
+			$("#przyciskiStosy").slideUp(600);
+		}
+	});
+	$("#btn1").on("click",function(){
+		if(stosy[1].length !== 0){
+			ladujNowyStos(1);
+			$("#answer-input-group").slideDown(400);
+			$("#przyciskiStosy").slideUp(600);
+		}
+	});
+	$("#btn2").on("click",function(){
+		if(stosy[2].length !== 0){
+			ladujNowyStos(2);
+			$("#answer-input-group").slideDown(400);
+			$("#przyciskiStosy").slideUp(600);
+		}
+	});
+	$("#btn3").on("click",function(){
+		if(stosy[3].length !== 0){
+			ladujNowyStos(3);
+			$("#answer-input-group").slideDown(400);
+			$("#przyciskiStosy").slideUp(600);
+		}
+	});
+	
 	function ladujNowyStos(numerStosu){
 		wskaznikStosu = numerStosu;
-		$("fiszka > div").css("border-color",getKolorStosu());
+		//console.log("wlazl",getKolorStosu(wskaznikStosu));
+		$("#fiszka").css({"border-color":getKolorStosu(wskaznikStosu)});
 		odpowiedziane = false;
 		correct = false;
+		stosy[wskaznikStosu]=tasuj(stosy[wskaznikStosu]);
 		ladujOdpowiedzi();
 
 	}
@@ -67,9 +108,21 @@ $(document).ready(function(){
 		}
 	}
 	
+	function tasuj(array) {
+		var counter = array.length, temp, index;
+		while (counter > 0) {
+			index = Math.floor(Math.random() * counter);
+			counter--;
+			temp = array[counter];
+			array[counter] = array[index];
+			array[index] = temp;
+		}
+		return array;
+	}
+	
 	function nowyAlert(tresc, klasa){
 		$tmp = $('#alert div');
-		$tmp.slideUp(100).removeClass("alert-danger alert-success").addClass("alert "+klasa);
+		$tmp.slideUp(100).removeClass().addClass("alert "+klasa);
 		$("#alert div p").text(tresc);
 		$tmp.slideDown(100);
 	}

@@ -35,7 +35,7 @@
 
 #learn-content{ 
 	> .container {
-		margin-top: 60px;
+		margin-top: 20px;
 	}
 
 	.panel{
@@ -45,15 +45,19 @@
 	}
 }
 
-#app .panel-body{
-	padding: 10px;
+#app {
+	height:auto;
 	
-	.panel-body > .btn-group {
-		margin-top: 10px;
-		width: 100%;
+	.panel-body{
+		padding: 10px;
 		
-		> .btn{
-			width: 50%;
+		.panel-body > .btn-group {
+			margin-top: 10px;
+			width: 100%;
+			
+			> .btn{
+				width: 50%;
+			}
 		}
 	}
 }
@@ -81,10 +85,36 @@
 	margin: 10px 0px 10px 0px;
 	padding: 0px;
 	div{
+		display: none;
 		padding: 0px;
 		height: 24px;
 		text-align: center;
 		margin: 0px;
+	}
+}
+
+#przyciskiStosy{
+	display:none;
+	text-align: center;
+	margin: 0px 0px 10px 0px;
+	color: #fff;
+	text-shadow: 3px 3px 3px #111;
+	//display: none;
+	#btn3{
+		border-color: #D0DD2B;
+		background-color: #D0DD2B;
+	}
+	#btn2{
+		border-color: #98C73D;
+		background-color: #98C73D;
+	}
+	#btn1{
+		border-color: #00A9E0;
+		background-color: #00A9E0;
+	}
+	#btn0{
+		border-color: #67CDDC;
+		background-color: #67CDDC;
 	}
 }
 
