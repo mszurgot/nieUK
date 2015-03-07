@@ -26,7 +26,6 @@ $(document).ready(function(){
 				uaktualnijWielkosciStosow();
 				$("#answer-input-group").slideUp(400);
 				$("#przyciskiStosy").slideDown(600);
-				
 			}
 		
 		}else{
