@@ -252,6 +252,7 @@ body {
   height: 20px;
   background-color: #161616;
   width: 100%;
+  z-index: 5;
 }
 #footer p {
   margin: 0px 0px 0px 50px;

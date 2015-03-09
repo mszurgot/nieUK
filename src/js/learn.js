@@ -6,9 +6,22 @@ $(document).ready(function(){
 	var stosy = [['mysz','ryba','kot','kogut','mrówka','jastrząb'],[],[],[]];
 	var wczytaneSlowa = [];
 	
+	if(typeof(Storage) !== "undefined") {
+    //document.getElementById("#footer").innerHTML = "<p>Code for localStorage/sessionStorage.</p>";
+	pobierzDoLocalStorage();
+	//console.log(localStorage.getItem(stosy[0][0]));
+	
+
+	} else {
+    //document.getElementById("#footer").innerHTML = "<p>Sorry! No Web Storage support..</p>";
+	}
+	
 	//init
 	ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
 	ladujNowyStos(0);
+	
+	
+
 	
 	$("#check").on("click",function(){
 		if(odpowiedziane){
@@ -87,6 +100,8 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	
 	function ladujNowyStos(numerStosu){
 		wskaznikStosu = numerStosu;
 		//console.log("wlazl",getKolorStosu(wskaznikStosu));
@@ -146,25 +161,26 @@ $(document).ready(function(){
 		}
 	}
 	
-	function ladujOdpowiedzi(){
+	function ladujOdpowiedzi(doWczytania){
 		$.ajax({
 			type: 'GET',
 			dataType: 'jsonp',
 			crossDomain: true,
 			error: function() { alert('błąd przy pozyskiwaniu danych z usługi sieciowej'); },
-			url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+stosy[wskaznikStosu][0]+'&page=1&pretty=false',
+			url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+doWczytania+'&page=1&pretty=false',
 			success: function(data){
 				//console.log('success',data);
-				wczytaneSlowa=[];
+				var tmp=[];
 				var j=0;
 				for(var i = 0; i < data.tuc.length - 2 ;i++){//tu warto kiedys zmienic aby dodawane slowka nie powtarzaly sie
 					try{
-					wczytaneSlowa[j]=data.tuc[j].phrase.text;//try catch do zrobienia!
+					tmp[j]=data.tuc[j].phrase.text;//try catch do zrobienia!
 					j++;
 					}catch(err){
-						console.log(err.message);
+						//console.log(err.message);
 					}
 				}
+				console.log(doWczytania + " : "+tmp);
 				//console.log("ilosc wczytanych slow",wczytaneSlowa.length);
 				uaktualnijWielkosciStosow();
 				$("#fiszka").toggle(400);
@@ -173,9 +189,22 @@ $(document).ready(function(){
 				$("#fiszka").toggle(400);
 				$("#answer").val("");
 				
+				localStorage.setItem(doWczytania, tmp);
+				
+				return tmp;
 			}
 		});
-	}  
+	}
+
+	function pobierzDoLocalStorage(){
+		$.each(stosy[0], function(it, slowo){
+			//console.log(it);
+			//console.log(slowo);
+			
+			//var odpo = ladujOdpowiedzi(slowo);
+			ladujOdpowiedzi(slowo);
+		});
+	}	
 
 	$("#more").on('click', function(){
 		$("#stats").toggle(1000).css({display: "block"});
