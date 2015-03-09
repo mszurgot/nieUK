@@ -30,7 +30,7 @@ $(document).ready(function(){
 			$("#alert div").slideUp(100);
 			console.log("wielkosc tablicy",stosy[wskaznikStosu].length);
 			if(stosy[wskaznikStosu].length !== 0){
-				ladujOdpowiedzi();
+				ladujOdpowiedzi(stosy[wskaznikStosu][0]);
 			}else {
 				//wymuszone wybieranie stosu
 				for(var i = 0 ; i<=3 ; i++){
@@ -109,7 +109,7 @@ $(document).ready(function(){
 		odpowiedziane = false;
 		correct = false;
 		stosy[wskaznikStosu]=tasuj(stosy[wskaznikStosu]);
-		ladujOdpowiedzi();
+		ladujOdpowiedzi(stosy[wskaznikStosu][0]);
 
 	}
 	
@@ -189,7 +189,9 @@ $(document).ready(function(){
 				$("#fiszka").toggle(400);
 				$("#answer").val("");
 				
-				localStorage.setItem(doWczytania, tmp);
+				if(doWczytania){
+					localStorage.setItem(doWczytania, tmp);
+				}
 				
 				return tmp;
 			}
