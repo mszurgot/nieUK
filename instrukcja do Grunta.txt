@@ -1,6 +1,7 @@
 ﻿skonfigurowalem pliki wiec wystarczy ze sciagniesz http://nodejs.org/ i zainstalujesz
-a pozniej przez cmd wejdziesz do folderu z projektem i odpalisz "npm install" 
+a pozniej przez cmd jako administrator wejdziesz do folderu z projektem i odpalisz "npm install" 
 (to zainstaluje wszystko co trzeba bo tak jest skonfigurowane w pliku package.json)
+Potrzebny jest też Sass wiec sciagasz instalkę ruby, instalujesz. Jako administrator odpalasz gem install sass
 w cmd w folderze projektu odpalić polecenie "grunt"
 to powinno wykonać wszystkie operacje zapisane w skrypcie Gruntfile.js czyli przetworzenie wszystkich danych z folderu src(tam gdzie dokonujemy zmian) i wpiasanie ich do folderu "build" w wersji produkcyjnej
 ostatni polecenie które sie tam wykona to watch czyli obserwowanie plikow i teraz z wlaczonym w tle oknem cmd nasze pliki w src beda obserwowane i każda zapisana zmiana automatycznie wyowała znowu przetworzenie odpowiednich danych i wyslanie ich do folderu "build"

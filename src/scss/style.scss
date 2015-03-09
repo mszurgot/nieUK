@@ -4,50 +4,41 @@ html, body{
 }
 body {
 	background-color: #000;
+}
 	
-    img{
-	position: fixed;
-	top: 0;
-	left: 0;
-    min-height: 776px;
-//	min-width: 657px;
+#img-wraper{
+	position:fixed;
+	height:770px;
 	width:100%;
-	z-index: -1;
-    }
-	#gradient{
-		position: absolute;
-		top:620px;
-		height: 150px;
-		width: 100%;
-		background: -webkit-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /*Safari 5.1-6*/
-		background: -o-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /*Opera 11.1-12*/
-		background: -moz-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /*Fx 3.6-15*/
-		background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)); /*Standard*/
-	}//to wszystko trzeba pozmieniac bo patologia mocno
-	#background{
-		background-color: #000;
-		position: absolute;
-		top:770px;
-		height: 400px;
-		width: 100%;
+	overflow: hidden;
+	left:0px;
+	top:0px;
+	
+	img{
+		top: 0;
+		left: 0;
+		min-height: 776px;
+		width:100%;
+		z-index: -1;
+		overflow: hidden;
 	}
+	
+	#gradient{
+			position: absolute;
+			bottom: 0px;
+			height: 150px;
+			width: 100%;
+			background: -webkit-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /*Safari 5.1-6*/
+			background: -o-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /*Opera 11.1-12*/
+			background: -moz-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /*Fx 3.6-15*/
+			background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)); /*Standard*/
+	}//to wszystko trzeba pozmieniac bo patologia mocno
 }
 
 #wrap {
 	min-height: 100%; 
 	height: auto !important;
-        padding-top: 60px;
-        
-	& > .container {
-		height: 100%;
-		width: 100%;
-		position: relative;
-		
-		& > div {
-			position: relative;
-			width: 100%;
-		}
-	}	
+    padding-top: 30px;
 }
 
 #footer {
@@ -58,6 +49,7 @@ body {
 	height: 20px;
 	background-color: #161616;
 	width:100%;
+	z-index;
 	p{
 		margin: 0px 0px 0px 50px;
 		color: #444;
@@ -65,15 +57,32 @@ body {
 }
 
 #row1{
-	padding: 60px 0px 0;
+	padding: 0px;
 	position: relative;
 	width:100%;
 	height: 376px;
 	display: block;
 	
-	div{
-		z-index: 1;
+	img{
+		top: 0;
+		left: 0;
+		min-height: 776px;
+		width:100%;
+		z-index: -1;
+		overflow: hidden;
 	}
+	
+	.container {
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+		position: relative;
+		
+		div {
+			position: relative;
+			width: 100%;
+		}
+	}	
 	
 	h1 {
 		color: #EEE;
