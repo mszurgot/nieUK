@@ -126,41 +126,39 @@
 
 #unanswered {
   width: 100%;
-  background-color: #67CDDC;
+  background-color: #67cddc;
 }
 
 #answered {
   width: 0%;
-  background-color: #00A9E0;
+  background-color: #00a9e0;
 }
 
 #answered-2-times {
   width: 0%;
-  background-color: #98C73D;
+  background-color: #98c73d;
 }
 
 #answered-3-times {
   width: 0%;
-  background-color: #D0DD2B;
+  background-color: #d0dd2b;
 }
 
 #unanswered-badge {
-  background-color: #67CDDC;
+  background-color: #67cddc;
 }
 
 #answered-badge {
-  background-color: #00A9E0;
+  background-color: #00a9e0;
 }
 
 #answered-2-times-badge {
-  background-color: #98C73D;
+  background-color: #98c73d;
 }
 
 #answered-3-times-badge {
-  background-color: #D0DD2B;
+  background-color: #d0dd2b;
 }
-
-/*# sourceMappingURL=learn.css.map */
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -196,8 +194,6 @@
   padding: 10px;
   font-size: 16px;
 }
-
-/*# sourceMappingURL=signin.css.map */
 html, body {
   min-height: 100%;
   height: 100%;
@@ -228,13 +224,13 @@ body {
   bottom: 0px;
   height: 150px;
   width: 100%;
-  background: -webkit-linear-gradient(bottom, transparent, black);
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), black);
   /*Safari 5.1-6*/
-  background: -o-linear-gradient(bottom, transparent, black);
+  background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), black);
   /*Opera 11.1-12*/
-  background: -moz-linear-gradient(bottom, transparent, black);
+  background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0), black);
   /*Fx 3.6-15*/
-  background: linear-gradient(to bottom, transparent, black);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
   /*Standard*/
 }
 
@@ -343,5 +339,3 @@ hr.dashed {
 #wyrownanie-do-prawej {
   align: right;
 }
-
-/*# sourceMappingURL=style.css.map */

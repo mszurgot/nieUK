@@ -5,23 +5,20 @@ $(document).ready(function(){
 	var wskaznikStosu = 0;	//wartości 0-3
 	var stosy = [['mysz','ryba','kot','kogut','mrówka','jastrząb'],[],[],[]];
 	var wczytaneSlowa = [];
+	var alternatywaSessionStorage; //tablica przechowująca
 	
 	if(typeof(Storage) !== "undefined") {
-    //document.getElementById("#footer").innerHTML = "<p>Code for localStorage/sessionStorage.</p>";
-	pobierzDoLocalStorage();
-	//console.log(localStorage.getItem(stosy[0][0]));
-	
-
+		//document.getElementById("#footer").innerHTML = "<p>Code for localStorage/sessionStorage.</p>";
+		pobierzDoLocalStorage(stosy[0]);
+		//console.log(localStorage.getItem(stosy[0][0]));
 	} else {
-    //document.getElementById("#footer").innerHTML = "<p>Sorry! No Web Storage support..</p>";
+		//document.getElementById("#footer").innerHTML = "<p>Sorry! No Web Storage support..</p>";
 	}
 	
 	//init
 	ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
 	ladujNowyStos(0);
-	
-	
-
+	uaktualnijWielkosciStosow();
 	
 	$("#check").on("click",function(){
 		if(odpowiedziane){
@@ -150,6 +147,11 @@ $(document).ready(function(){
 		$('#answered-2-times').css("width",(stosy[2].length*100/ileWszystkichSlowek)+"%");
 		$('#answered').css("width",(stosy[1].length*100/ileWszystkichSlowek)+"%");
 		$('#unanswered').css("width",(stosy[0].length*100/ileWszystkichSlowek)+"%");
+		$("#fiszka").toggle(400);
+		$("#fiszka > h3").text(stosy[wskaznikStosu][0]);
+		$("#translates").text("");
+		$("#fiszka").toggle(400);
+		$("#answer").val("");
 	}
 	
 	function appendWczytaneSlowa(){
@@ -160,52 +162,37 @@ $(document).ready(function(){
 			translates.append(wczytaneSlowa[i] + ((i < wczytaneSlowa.length-1)?", ":"."));
 		}
 	}
-	
-	function ladujOdpowiedzi(doWczytania){
-		$.ajax({
-			type: 'GET',
-			dataType: 'jsonp',
-			crossDomain: true,
-			error: function() { alert('błąd przy pozyskiwaniu danych z usługi sieciowej'); },
-			url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+doWczytania+'&page=1&pretty=false',
-			success: function(data){
-				//console.log('success',data);
-				var tmp=[];
-				var j=0;
-				for(var i = 0; i < data.tuc.length - 2 ;i++){//tu warto kiedys zmienic aby dodawane slowka nie powtarzaly sie
-					try{
-					tmp[j]=data.tuc[j].phrase.text;//try catch do zrobienia!
-					j++;
-					}catch(err){
-						//console.log(err.message);
-					}
-				}
-				console.log(doWczytania + " : "+tmp);
-				//console.log("ilosc wczytanych slow",wczytaneSlowa.length);
-				uaktualnijWielkosciStosow();
-				$("#fiszka").toggle(400);
-				$("#fiszka > h3").text(stosy[wskaznikStosu][0]);
-				$("#translates").text("");
-				$("#fiszka").toggle(400);
-				$("#answer").val("");
-				
-				if(doWczytania){
-					localStorage.setItem(doWczytania, tmp);
-				}
-				
-				return tmp;
-			}
-		});
-	}
 
-	function pobierzDoLocalStorage(){
-		$.each(stosy[0], function(it, slowo){
-			//console.log(it);
-			//console.log(slowo);
-			
-			//var odpo = ladujOdpowiedzi(slowo);
-			ladujOdpowiedzi(slowo);
-		});
+	//seria zapytań GET do API glosbe.com wczytujace do local storage pozyskane tlumaczenia dla tablicy podanych slow
+	function pobierzDoLocalStorage(tablicaSlow){
+		var czyObslugujeSessionStorage = (typeof(Storage) !== "undefined")?true:false;
+			$.each(tablicaSlow, function(it, slowo){
+				$.ajax({
+					type: 'GET',
+					dataType: 'jsonp',
+					crossDomain: true,
+					error: function() { alert('błąd przy pozyskiwaniu danych z usługi sieciowej'); },
+					url: 'https://glosbe.com/gapi/translate?from=pol&dest=eng&format=json&phrase='+slowo+'&page=1&pretty=false',
+					success: function(data){
+						//console.log('success',data);
+						var tmp=[];
+						var j=0;
+						for(var i = 0; i < data.tuc.length - 2 ;i++){//tu warto kiedys zmienic aby dodawane slowka nie powtarzaly sie
+							try{
+							tmp[j]=data.tuc[j].phrase.text;//try catch do zrobienia!
+							j++;
+							}catch(err){
+								//console.log(err.message);
+							}
+						}
+						console.log(slowo + " : "+tmp);
+						//console.log("ilosc wczytanych slow",wczytaneSlowa.length);
+						if(slowo){
+							localStorage.setItem(slowo, tmp);
+						}
+					}	
+				});
+			});
 	}	
 
 	$("#more").on('click', function(){

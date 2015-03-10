@@ -126,38 +126,36 @@
 
 #unanswered {
   width: 100%;
-  background-color: #67CDDC;
+  background-color: #67cddc;
 }
 
 #answered {
   width: 0%;
-  background-color: #00A9E0;
+  background-color: #00a9e0;
 }
 
 #answered-2-times {
   width: 0%;
-  background-color: #98C73D;
+  background-color: #98c73d;
 }
 
 #answered-3-times {
   width: 0%;
-  background-color: #D0DD2B;
+  background-color: #d0dd2b;
 }
 
 #unanswered-badge {
-  background-color: #67CDDC;
+  background-color: #67cddc;
 }
 
 #answered-badge {
-  background-color: #00A9E0;
+  background-color: #00a9e0;
 }
 
 #answered-2-times-badge {
-  background-color: #98C73D;
+  background-color: #98c73d;
 }
 
 #answered-3-times-badge {
-  background-color: #D0DD2B;
+  background-color: #d0dd2b;
 }
-
-/*# sourceMappingURL=learn.css.map */

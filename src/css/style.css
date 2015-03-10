@@ -28,13 +28,13 @@ body {
   bottom: 0px;
   height: 150px;
   width: 100%;
-  background: -webkit-linear-gradient(bottom, transparent, black);
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), black);
   /*Safari 5.1-6*/
-  background: -o-linear-gradient(bottom, transparent, black);
+  background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), black);
   /*Opera 11.1-12*/
-  background: -moz-linear-gradient(bottom, transparent, black);
+  background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0), black);
   /*Fx 3.6-15*/
-  background: linear-gradient(to bottom, transparent, black);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
   /*Standard*/
 }
 
@@ -143,5 +143,3 @@ hr.dashed {
 #wyrownanie-do-prawej {
   align: right;
 }
-
-/*# sourceMappingURL=style.css.map */
