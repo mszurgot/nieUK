@@ -5,6 +5,8 @@ $(document).ready(function(){
 	var wskaznikStosu = 0;	//wartości 0-3
 	var stosy = [['mysz','ryba','kot','kogut','mrówka','jastrząb'],[],[],[]];
 	var wczytaneSlowa = [];
+	var ileDobrych = 0;
+	var ileZlych = 0;
 	//var alternatywaSessionStorage; //tablica przechowująca
 	
 	if(typeof(Storage) !== "undefined") {
@@ -48,6 +50,7 @@ $(document).ready(function(){
 				}
 			});
 			if(correct){
+				ileDobrych++;
 				nowyAlert("Fuckn' awesome, Man", "alert-success");
 				if(wskaznikStosu < 3){
 					stosy[wskaznikStosu+1].push(stosy[wskaznikStosu].shift());
@@ -56,6 +59,7 @@ $(document).ready(function(){
 					nowyAlert("You've learned new word: "+nauczone+".", "alert-info");
 				}
 			}else{
+				ileZlych++;
 				nowyAlert("You suck! Try again faggot", "alert-danger");
 				if(wskaznikStosu > 0){
 					stosy[wskaznikStosu-1].push(stosy[wskaznikStosu].shift());
@@ -146,6 +150,10 @@ $(document).ready(function(){
 		$('#answered-2-times').css("width",(stosy[2].length*100/ileWszystkichSlowek)+"%");
 		$('#answered').css("width",(stosy[1].length*100/ileWszystkichSlowek)+"%");
 		$('#unanswered').css("width",(stosy[0].length*100/ileWszystkichSlowek)+"%");
+		$('#ile-dobrych').text(ileDobrych);
+		$('#ile-zlych').text(ileZlych);
+		$('#ile-slowek').text(ileWszystkichSlowek);
+		$('#wydajnosc').text(Math.round(ileDobrych*100/(ileWszystkichSlowek),2));
 	}
 	
 	function appendWczytaneSlowa(){
