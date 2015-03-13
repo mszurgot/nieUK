@@ -137,16 +137,20 @@ body {
 	position: relative;
 	width:100%;
 	height: auto;
-	background-color: #aaa;
+	background-color: #C1E0F0;
 	min-height:200px;
 	overflow: hidden;
-	
-	#carousel-example-generic{
-		min-height:300px;
-		height:auto;
-		max-height:600px;
-		width: auto;
+	.container{
+	padding:0px;
+		#carousel-example-generic{
+			min-height:300px;
+			height:auto;
+			max-height:600px;
+			max-width:1000px;
+			width: auto;
+		}
 	}
+	
 }
 
 .container .credit {
