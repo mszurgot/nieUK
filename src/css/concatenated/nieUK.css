@@ -126,6 +126,15 @@
   margin-left: 0%;
 }
 
+#databases .btn-group-vertical {
+  height: auto;
+  width: 100%;
+  margin: 0px;
+}
+#databases .btn-group-vertical p {
+  font-size: 18px;
+}
+
 #unanswered {
   width: 100%;
   background-color: #67CDDC;
@@ -329,12 +338,19 @@ body {
 }
 
 #row3 {
+  margin: auto;
   position: relative;
   width: 100%;
   height: auto;
   background-color: #aaa;
   min-height: 200px;
   overflow: hidden;
+}
+#row3 #carousel-example-generic {
+  min-height: 300px;
+  height: auto;
+  max-height: 600px;
+  width: auto;
 }
 
 .container .credit {
@@ -343,10 +359,6 @@ body {
 
 code {
   font-size: 80%;
-}
-
-#carousel-example-generic {
-  height: 600px;
 }
 
 #dropdown {

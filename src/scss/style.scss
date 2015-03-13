@@ -133,12 +133,20 @@ body {
 } 
 
 #row3 {
+	margin:auto;
 	position: relative;
 	width:100%;
 	height: auto;
 	background-color: #aaa;
 	min-height:200px;
 	overflow: hidden;
+	
+	#carousel-example-generic{
+		min-height:300px;
+		height:auto;
+		max-height:600px;
+		width: auto;
+	}
 }
 
 .container .credit {
@@ -149,9 +157,7 @@ code {
   font-size: 80%;
 }
 
-#carousel-example-generic{
-	height:600px;
-}
+
 
 
 

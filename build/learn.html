@@ -31,7 +31,7 @@
 		  </div>
 		  <div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-			  <li><a href="add.html"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Add words</a></li>	<!-- dla aktywnego li dajemy klasê "active"-->
+			  <!--<li><a href="add.html"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Add words</a></li>-->	<!-- dla aktywnego li dajemy klasê "active"-->
 			  <li class="active"><a href="learn.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Learn</a></li>	<!-- dla aktywnego li dajemy klasê "active"-->
 			</ul>
 			<ul class="nav navbar-right navbar-nav ">
@@ -75,10 +75,10 @@
 					<h4><b>more statistics:</b></h4>
 						<div class="container-fluid">
 							<div class="col-xs-12 col-md-3">
-								<p>correct answers: <span class="badge" id="ile-zlych">0</span></p>
+								<p>wrong answers: <span class="badge" id="ile-zlych">0</span></p>
 							</div>
 							<div class="col-xs-12 col-md-3">
-								<p>wrong answers: <span class="badge" id="ile-dobrych">0</span></p>
+								<p>correct answers: <span class="badge" id="ile-dobrych">0</span></p>
 							</div>
 							<div class="col-xs-12 col-md-3">
 								<p>all words: <span class="badge" id="ile-slowek">0</span></p>
@@ -159,22 +159,12 @@
 			<div class="panel panel-default">
 				<!-- <div class="panel-heading"><h3 class="panel-title">Databases</h3></div> -->
 				<div class="panel-body">
-					 <div class="list-group">
-						<a href="#" class="list-group-item">zwierzeta</a>
-						<a href="#" class="list-group-item">jedzenie</a>
-						<a href="#" class="list-group-item">jakies wyszukane</a>
-						<a href="#" class="list-group-item">ta tabela bedzie chyba musiala byc generowana</a>
+					 <div class="btn-group-vertical" role="group" aria-label="choose words">
+						<button id="animals" type="button" class="btn btn-info" aria-label="Animals"><p>Animals</p></button>
+						<button id="food" type="button" class="btn btn-info" aria-label="Food"><p>Food</p></button>
+						<button id="sports" type="button" class="btn btn-info" aria-label="Sports"><p>Sports</p></button>
 					</div> 
-					<!--
-						<form action=""> 
-							<select name="databases" onchange="nowaFunkcja(this.value)">
-								<option value="">Select a database:</option>
-								<option value="FIRST">first</option>
-								<option value="SECOND">second</option>
-								<option value="NEXT">next</option>
-							</select>
-						</form>
-						-->
+
 				</div>
 			</div>
 		</div>

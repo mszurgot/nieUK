@@ -141,6 +141,15 @@ $answered-3-times: #D0DD2B;
 	}
 }
 
+#databases .btn-group-vertical {
+	height: auto;
+	width: 100%;
+	margin: 0px;
+	p{
+		font-size: 18px;
+	}
+}
+
 #unanswered{
 	width: 100%;
 	background-color: $unanswered-color;

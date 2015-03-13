@@ -3,26 +3,14 @@ $(document).ready(function(){
 	//var czyWyswietlicOdpowiedz = false;
 	var ileWszystkichSlowek = 1;
 	var wskaznikStosu = 0;	//wartości 0-3
-	var stosy = [['mysz','ryba','kot','kogut','mrówka','jastrząb'],[],[],[]];
+	var stosy = [[],[],[],[]];
 	var wczytaneSlowa = [];
 	var ileDobrych = 0;
 	var ileZlych = 0;
 	var ileRazyOdpowiedziane = 0;
 	//var alternatywaSessionStorage; //tablica przechowująca
 	
-	if(typeof(Storage) !== "undefined") {
-		//document.getElementById("#footer").innerHTML = "<p>Code for localStorage/sessionStorage.</p>";
-		pobierzDoLocalStorage(stosy[0]);
-		//console.log(localStorage.getItem(stosy[0][0]));
-	} else {
-		//wypadaloby dodac obluge dla przegladarek nieobslugujacych session storage
-	}
-	
-	//init
-	
-	ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
-	ladujNowyStos(0);
-	uaktualnijWielkosciStosow();
+	ladujBaze(0);
 	
 	$("#check").on("click",function(){
 		if(odpowiedziane){
@@ -104,8 +92,50 @@ $(document).ready(function(){
 			$("#przyciskiStosy").slideUp(600);
 		}
 	});
+	$("#animals").on("click",function(){
+		ladujBaze(0);
+	});
+	$("#food").on("click",function(){
+		ladujBaze(1);
+	});
+	$("#sports").on("click",function(){
+		ladujBaze(2);
+	});
 	
-	
+	function ladujBaze(ktoraBaza){
+		var baza;
+		ileDobrych = 0;
+		ileZlych = 0;
+		ileRazyOdpowiedziane = 0;
+		switch(ktoraBaza){
+			case 0: {
+				baza = ['mysz','ryba','kot','kogut','mrówka','jastrząb'];
+				break;
+				}
+			case 1:{
+				 baza = ['ser','pieprz','mięso','sól','ogórek'];
+				 break;
+			}
+			case 2:{
+				baza = ['koszykówka','siatkówka','wioślarstwo'];
+				break;
+			}
+		}
+		if(typeof(Storage) !== "undefined") {
+			//document.getElementById("#footer").innerHTML = "<p>Code for localStorage/sessionStorage.</p>";
+			pobierzDoLocalStorage(baza);
+			//console.log(localStorage.getItem(stosy[0][0]));
+		} else {
+			//wypadaloby dodac obluge dla przegladarek nieobslugujacych session storage
+		}
+		if(stosy[0]!==null){
+			stosy=[[],[],[],[]];
+			stosy[0]=baza;
+			ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
+			ladujNowyStos(0);
+			uaktualnijWielkosciStosow();
+		}
+	}
 	
 	function ladujNowyStos(numerStosu){
 		wskaznikStosu = numerStosu;
@@ -157,7 +187,7 @@ $(document).ready(function(){
 		$('#ile-dobrych').text(ileDobrych);
 		$('#ile-zlych').text(ileZlych);
 		$('#ile-slowek').text(ileWszystkichSlowek);
-		if(ileRazyOdpowiedziane<0){$('#wydajnosc').text(Math.round(ileDobrych*100/(ileRazyOdpowiedziane),2));}
+		if(ileRazyOdpowiedziane>0){$('#wydajnosc').text(Math.round(ileDobrych*100/(ileRazyOdpowiedziane),2));}
 	}
 	
 	function appendWczytaneSlowa(){
