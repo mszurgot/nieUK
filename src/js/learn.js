@@ -35,7 +35,7 @@ $(document).ready(function(){
 			//console.log('checkVal',answer);
 			var correct = false;
 			$.each(wczytaneSlowa, function(it,slowo){
-				if(answer === slowo){
+				if(answer.toLowerCase().trim() === slowo.toLowerCase().trim()){
 					correct = true;
 				}
 			});
@@ -117,7 +117,7 @@ $(document).ready(function(){
 				 break;
 			}
 			case 2:{
-				baza = ['koszykówka','siatkówka','wioślarstwo'];
+				baza = ['koszykówka','siatkówka','kajakarstwo'];
 				break;
 			}
 		}
