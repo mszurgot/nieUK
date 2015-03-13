@@ -3,8 +3,8 @@
 	max-width: 330px;
 	padding: 15px;
 	margin: 60px auto;
-        color: #ddd;
-        text-shadow: 5px 5px 5px #111;
+    color: #ddd;
+    text-shadow: 5px 5px 5px #111;
         
 	.form-control:focus {
 		z-index: 2;
@@ -14,6 +14,10 @@
 		margin-bottom: -1px;
 		border-bottom-right-radius: 0;
 		border-bottom-left-radius: 0;
+	}
+	
+	.form-signin-heading{
+		z-index: 1;
 	}
 	
 	input[type="password"] {

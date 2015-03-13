@@ -7,6 +7,7 @@ $(document).ready(function(){
 	var wczytaneSlowa = [];
 	var ileDobrych = 0;
 	var ileZlych = 0;
+	var ileRazyOdpowiedziane = 0;
 	//var alternatywaSessionStorage; //tablica przechowująca
 	
 	if(typeof(Storage) !== "undefined") {
@@ -18,6 +19,7 @@ $(document).ready(function(){
 	}
 	
 	//init
+	
 	ileWszystkichSlowek = stosy[0].length + stosy[1].length + stosy[2].length + stosy[3].length;
 	ladujNowyStos(0);
 	uaktualnijWielkosciStosow();
@@ -65,6 +67,8 @@ $(document).ready(function(){
 					stosy[wskaznikStosu-1].push(stosy[wskaznikStosu].shift());
 				}
 			}
+			localStorage.setItem("stosy",stosy);
+			ileRazyOdpowiedziane++;
 			$(this).removeClass("btn-info").addClass("btn-success").text("Confirm");
 			odpowiedziane = true;	
 			appendWczytaneSlowa();
@@ -153,7 +157,7 @@ $(document).ready(function(){
 		$('#ile-dobrych').text(ileDobrych);
 		$('#ile-zlych').text(ileZlych);
 		$('#ile-slowek').text(ileWszystkichSlowek);
-		$('#wydajnosc').text(Math.round(ileDobrych*100/(ileWszystkichSlowek),2));
+		if(ileRazyOdpowiedziane<0){$('#wydajnosc').text(Math.round(ileDobrych*100/(ileRazyOdpowiedziane),2));}
 	}
 	
 	function appendWczytaneSlowa(){

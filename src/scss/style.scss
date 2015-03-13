@@ -1,3 +1,5 @@
+$navbarfooter: #061B23;
+
 html, body{
 	min-height: 100%;
 	height: 100%;
@@ -5,6 +7,10 @@ html, body{
 body {
 	background-color: #000;
 }
+	
+.navbar{
+	background-color: $navbarfooter;
+}	
 	
 #img-wraper{
 	position:fixed;
@@ -38,7 +44,7 @@ body {
 #wrap {
 	min-height: 100%; 
 	height: auto !important;
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
 #footer {
@@ -47,7 +53,7 @@ body {
 	border-color: #000;
 	bottom: 0px;
 	height: 20px;
-	background-color: #161616;
+	background-color: $navbarfooter;
 	width:100%;
 	z-index: 5;
 	p{
@@ -57,53 +63,73 @@ body {
 }
 
 #row1{
-	padding: 0px;
-	position: relative;
-	width:100%;
-	height: 376px;
-	display: block;
-	
-	img{
-		top: 0;
-		left: 0;
-		min-height: 776px;
-		width:100%;
-		z-index: -1;
-		overflow: hidden;
-	}
-	
-	.container {
-		height: 100%;
-		width: 100%;
-		z-index: 1;
-		position: relative;
-		
-		div {
-			position: relative;
-			width: 100%;
-		}
-	}	
-	
-	h1 {
-		color: #EEE;
-		text-shadow: 5px 5px 5px #111;
-	}
-	
-	p {
-		color: #EEE;
-		font-size: 18px;
-	}
-}
 
-#under-title {
-	text-shadow: 5px 5px 5px #111;
+		padding: 0px;
+		position: relative;
+		height: 376px;
+		
+			.container {
+				background-color: rgba(0,0,0,0.5);
+				z-index: 1;
+				position: relative;
+				div {
+					position: relative;
+					width: 100%;
+				}
+		}	
+		
+		img{
+			top: 0;
+			left: 0;
+			min-height: 776px;
+			width:100%;
+			z-index: -1;
+			overflow: hidden;
+			position: absolute;
+		}
+		
+		h1 {
+			color: #EEE;
+			text-shadow: 3px 3px 5px #111;
+		}
+		
+		p, ul{
+			color: #EEE;
+			font-size: 18px;
+		}
+		
+		#under-title, ul {
+			text-shadow: 3px 3px 5px #111;
+		}
 }
 
 #row2 {
+	border: 1px;
+	border-color: #67CDDC;
 	position: relative;
 	width:100%;
-	height: 600px;
-	background-color: #181818;
+	min-height: 120px;
+	height: auto;
+	background-color: #2F486E;
+
+	hr.dashed {
+		position: absolute;
+		border-bottom: 3px dashed #67CDDC;
+		width:100%;
+		border-top: none;
+	}
+	#hr-dolna{
+		bottom: 0px;
+	}
+	.container{
+		p {
+			margin: 30px;
+			color: #EEE;
+			font-size: 18px;
+			text-shadow: 3px 3px 5px #111;
+		}
+	}
+	
 } 
 
 #row3 {
@@ -123,21 +149,11 @@ code {
   font-size: 80%;
 }
 
-hr.dashed {
-	position: absolute;
-    border-bottom: 3px dashed #aaa;
-	width:100%;
-	border-top: none;
-	
-}
-
 #carousel-example-generic{
 	height:600px;
 }
 
-#hr-dolna{
-	bottom: 0px;
-}
+
 
 #dropdown {
 horizontal-align: right;
